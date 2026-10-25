@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <meta name="description" content="Portfolio et projets — disponible pour des missions freelance." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container nav-inner">
+        <a href="#" class="logo" id="nav-nom"></a>
+        <nav class="nav-links">
+          <a href="#projets">Projets</a>
+          <a href="#parcours">Parcours</a>
+          <a href="#apropos">À propos</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">◐</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container" id="hero"></section>
+
+      <section class="section container" id="projets">
+        <h2 class="section-title">Projets</h2>
+        <div class="filtres" id="filtres"></div>
+        <div class="grille" id="grille-projets"></div>
+      </section>
+
+      <section class="section container" id="parcours">
+        <h2 class="section-title">Parcours</h2>
+        <div class="parcours">
+          <div id="experiences"></div>
+          <div id="parcours-aside"></div>
+        </div>
+      </section>
+
+      <section class="section container" id="services-section">
+        <h2 class="section-title">Services</h2>
+        <div class="services" id="services"></div>
+      </section>
+
+      <section class="section container" id="apropos">
+        <h2 class="section-title">À propos</h2>
+        <div class="apropos">
+          <div id="apropos-texte"></div>
+          <div id="competences"></div>
+        </div>
+      </section>
+
+      <section class="section container" id="contact">
+        <div class="contact-card" id="contact-card"></div>
+      </section>
+    </main>
+
+    <footer class="footer container" id="footer"></footer>
+
+    <script src="data/profil.js"></script>
+    <script src="data/projets.js"></script>
+    <script src="js/commun.js"></script>
+    <script src="js/accueil.js"></script>
+  </body>
+</html>
