@@ -13,15 +13,15 @@
   document.getElementById("hero").innerHTML = `
     ${photo}
     <div>
-      ${profil.disponible ? `<span class="badge-dispo">● ${esc(profil.disponible === true ? "Disponible pour des missions" : profil.disponible)}</span>` : ""}
+      ${profil.disponible ? `<span class="badge-dispo">● ${esc(profil.disponible === true ? T("dispo_defaut") : profil.disponible)}</span>` : ""}
       <h1>${esc(profil.nom)}</h1>
       <p class="hero-titre">${esc(profil.titre)}</p>
       <p class="hero-accroche">${esc(profil.accroche)}</p>
       ${profil.localisation ? `<p class="muted">${esc(profil.localisation)}</p>` : ""}
       <div class="actions">
-        <a class="btn btn-primaire" href="#contact">Me contacter</a>
-        <a class="btn" href="#projets">Voir mes projets</a>
-        ${profil.cv ? `<a class="btn" href="${esc(profil.cv)}" target="_blank" rel="noopener">Télécharger mon CV</a>` : ""}
+        <a class="btn btn-primaire" href="#contact">${T("contacter")}</a>
+        <a class="btn" href="#projets">${T("voir_projets")}</a>
+        ${profil.cv ? `<a class="btn" href="${esc(profil.cv)}" target="_blank" rel="noopener">${profil.cvLangue === "fr" ? T("telecharger_cv_fr") : T("telecharger_cv")}</a>` : ""}
       </div>
     </div>`;
 
@@ -32,7 +32,7 @@
 
   function carte(p) {
     return `
-      <a class="carte" href="projet.html?id=${encodeURIComponent(p.id)}">
+      <a class="carte" href="${lien("projet.html?id=" + encodeURIComponent(p.id))}">
         ${visuelProjet(p, "carte-visuel")}
         <div class="carte-corps">
           <div class="carte-meta">${esc(p.categorie || "")}${p.annee ? ` · ${esc(p.annee)}` : ""}</div>
@@ -47,7 +47,7 @@
     const liste = categorie ? projets.filter((p) => p.categorie === categorie) : projets;
     grille.innerHTML = liste.length
       ? liste.map(carte).join("")
-      : `<p class="muted">Les projets arrivent bientôt.</p>`;
+      : `<p class="muted">${T("bientot")}</p>`;
     filtres.querySelectorAll("button").forEach((b) =>
       b.classList.toggle("actif", (b.dataset.cat || "") === (categorie || ""))
     );
@@ -55,7 +55,7 @@
 
   if (categories.length > 1) {
     filtres.innerHTML =
-      `<button data-cat="">Tous</button>` +
+      `<button data-cat="">${T("tous")}</button>` +
       categories.map((c) => `<button data-cat="${esc(c)}">${esc(c)}</button>`).join("");
     filtres.addEventListener("click", (e) => {
       if (e.target.tagName === "BUTTON") afficher(e.target.dataset.cat);
@@ -76,7 +76,7 @@
   // ---------- Parcours ----------
   const experiences = profil.experiences || [];
   document.getElementById("experiences").innerHTML = experiences.length
-    ? `<h3 class="parcours-titre">Expérience</h3>` +
+    ? `<h3 class="parcours-titre">${T("experience")}</h3>` +
       experiences
         .map(
           (x) => `
@@ -98,7 +98,7 @@
   const formation = profil.formation || [];
   document.getElementById("parcours-aside").innerHTML =
     (formation.length
-      ? `<div class="parcours-bloc"><h3 class="parcours-titre">Formation</h3>${formation
+      ? `<div class="parcours-bloc"><h3 class="parcours-titre">${T("formation")}</h3>${formation
           .map(
             (f) => `
         <div class="formation">
@@ -109,9 +109,9 @@
           )
           .join("")}</div>`
       : "") +
-    blocListe("Certificats", profil.certificats) +
-    blocListe("Langues", profil.langues) +
-    blocListe("Vie associative", profil.associations);
+    blocListe(T("certificats"), profil.certificats) +
+    blocListe(T("langues"), profil.langues) +
+    blocListe(T("associations"), profil.associations);
   if (!experiences.length && !formation.length) document.getElementById("parcours").remove();
 
   // ---------- À propos + compétences ----------
@@ -131,8 +131,8 @@
   // ---------- Contact ----------
   const { email, telephone, titre, texte } = profil.contact || {};
   document.getElementById("contact-card").innerHTML = `
-    <h2>${esc(titre || "Un projet en tête ?")}</h2>
-    <p>${esc(texte || "Parlons-en : je réponds généralement sous 24 h.")}</p>
+    <h2>${esc(titre || T("contact_titre"))}</h2>
+    <p>${esc(texte || T("contact_texte"))}</p>
     <div class="actions">
       ${email ? `<a class="btn btn-primaire" href="mailto:${esc(email)}">${esc(email)}</a>` : ""}
       ${telephone ? `<a class="btn" href="tel:${esc(telephone.replace(/\s/g, ""))}">${esc(telephone)}</a>` : ""}
