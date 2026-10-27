@@ -16,7 +16,7 @@ window.EN = {
     ],
     localisation: "Kélibia, Tunisia",
     disponible: "Open to full-time engineering roles",
-    cv_en: "", // ex : "assets/CV_Taha_Ben_Salem_EN.pdf" quand un CV en anglais existe
+    cv_en: "assets/CV_Taha_Ben_Salem_EN.pdf",
 
     contact: {
       titre: "Let's work together",
