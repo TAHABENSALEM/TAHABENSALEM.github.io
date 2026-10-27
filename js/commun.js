@@ -24,8 +24,6 @@ if (LANG === "en" && window.EN) {
   const base = window.PROFIL;
   const enProfil = window.EN.profil || {};
   window.PROFIL = { ...base, ...enProfil, contact: { ...base.contact, ...(enProfil.contact || {}) } };
-  if (enProfil.cv_en) window.PROFIL.cv = enProfil.cv_en;
-  else window.PROFIL.cvLangue = "fr"; // pas de CV anglais : on l'indique sur le bouton
   window.PROJETS = (window.PROJETS || []).map((p) => ({ ...p, ...((window.EN.projets || {})[p.id] || {}) }));
 }
 
@@ -44,7 +42,8 @@ const UI = {
     dispo_defaut: "Disponible pour des missions",
     contacter: "Me contacter",
     voir_projets: "Voir mes projets",
-    telecharger_cv: "Télécharger mon CV",
+    cv_fr: "CV en français",
+    cv_en: "CV en anglais",
     titre_projets: "Projets",
     titre_parcours: "Parcours",
     titre_apropos: "À propos",
@@ -83,8 +82,8 @@ const UI = {
     dispo_defaut: "Available for assignments",
     contacter: "Contact me",
     voir_projets: "See my projects",
-    telecharger_cv: "Download my CV",
-    telecharger_cv_fr: "Download my CV (French)",
+    cv_fr: "CV in French",
+    cv_en: "CV in English",
     titre_projets: "Projects",
     titre_parcours: "Background",
     titre_apropos: "About",

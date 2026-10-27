@@ -16,6 +16,7 @@ window.PROFIL = {
   disponible: "Ouvert aux postes d'ingénieur à temps plein", // texte du badge ("" pour le masquer)
   photo: "assets/img/photo.jpg",
   cv: "assets/CV_Taha_Ben_Salem.pdf",
+  cvEn: "assets/CV_Taha_Ben_Salem_EN.pdf",
 
   contact: {
     email: "bensalemtaha20@gmail.com",

@@ -21,7 +21,8 @@
       <div class="actions">
         <a class="btn btn-primaire" href="#contact">${T("contacter")}</a>
         <a class="btn" href="#projets">${T("voir_projets")}</a>
-        ${profil.cv ? `<a class="btn" href="${esc(profil.cv)}" target="_blank" rel="noopener">${profil.cvLangue === "fr" ? T("telecharger_cv_fr") : T("telecharger_cv")}</a>` : ""}
+        ${profil.cv ? `<a class="btn" href="${esc(profil.cv)}" target="_blank" rel="noopener">${T("cv_fr")}</a>` : ""}
+        ${profil.cvEn ? `<a class="btn" href="${esc(profil.cvEn)}" target="_blank" rel="noopener">${T("cv_en")}</a>` : ""}
       </div>
     </div>`;
 

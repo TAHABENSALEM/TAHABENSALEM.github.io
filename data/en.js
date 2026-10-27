@@ -16,7 +16,6 @@ window.EN = {
     ],
     localisation: "Kélibia, Tunisia",
     disponible: "Open to full-time engineering roles",
-    cv_en: "assets/CV_Taha_Ben_Salem_EN.pdf",
 
     contact: {
       titre: "Let's work together",
